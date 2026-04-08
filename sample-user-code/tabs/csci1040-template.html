@@ -1,0 +1,81 @@
+<p>This template creates a tab-like content block using standard HTML links and expandable sections. Users can click on
+    the tab headers (in grey) to jump to each section, and open/close each tab section (in brown) individually.</p>
+<div style="border: 1px solid #c7cdd1; border-radius: 8px; overflow: hidden; margin: 20px 0;">
+    <div style="background: #f1efee; border-bottom: 1px solid #c7cdd1; display: flex; flex-wrap: wrap; gap: 0;"><a
+            style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"
+            href="#section-one">[Section title 1]</a> <a
+            style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"
+            href="#section-two">[Section title 2]</a> <a
+            style="background: #f1efee; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"
+            href="#section-three">[Section title 3]</a></div>
+    <div style="background: #ffffff; padding: 0;">
+        <details id="section-one" style="border-bottom: 1px solid #c7cdd1;">
+            <summary
+                style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; list-style: none; padding: 14px 18px;">
+                [Section title 1]</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>[Add section content here.]</p>
+            </div>
+        </details>
+        <details id="section-two" style="border-bottom: 1px solid #c7cdd1;">
+            <summary
+                style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; list-style: none; padding: 14px 18px;">
+                [Section title 2]</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>[Add section content here.]</p>
+            </div>
+        </details>
+        <details id="section-three">
+            <summary
+                style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; list-style: none; padding: 14px 18px;">
+                [Section title 3]</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>[Add section content here.]</p>
+            </div>
+        </details>
+    </div>
+</div>
+<hr />
+<details style="margin-top: 20px;">
+    <summary style="cursor: pointer;">Copy/Paste Source Code</summary>
+    <pre
+        style="background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; overflow-x: auto; padding: 16px; white-space: pre-wrap;"><code>&lt;div style="border: 1px solid #c7cdd1; border-radius: 8px; overflow: hidden; margin: 20px 0;"&gt;
+    &lt;div style="background: #f1efee; border-bottom: 1px solid #c7cdd1; display: flex; flex-wrap: wrap; gap: 0;"&gt;
+        &lt;a href="#section-one" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"&gt;[Section title 1]&lt;/a&gt;
+        &lt;a href="#section-two" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"&gt;[Section title 2]&lt;/a&gt;
+        &lt;a href="#section-three" style="background: #f1efee; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;"&gt;[Section title 3]&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style="background: #ffffff; padding: 0;"&gt;
+        &lt;details id="section-one" open style="border-bottom: 1px solid #c7cdd1;"&gt;
+            &lt;summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;"&gt;[Section title 1]&lt;/summary&gt;
+            &lt;div style="font-size: 18px; padding: 18px;"&gt;
+                &lt;p&gt;[Add section content here.]&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/details&gt;
+        &lt;details id="section-two" style="border-bottom: 1px solid #c7cdd1;"&gt;
+            &lt;summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;"&gt;[Section title 2]&lt;/summary&gt;
+            &lt;div style="font-size: 18px; padding: 18px;"&gt;
+                &lt;p&gt;[Add section content here.]&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/details&gt;
+        &lt;details id="section-three"&gt;
+            &lt;summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;"&gt;[Section title 3]&lt;/summary&gt;
+            &lt;div style="font-size: 18px; padding: 18px;"&gt;
+                &lt;p&gt;[Add section content here.]&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/details&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;</code></pre>
+</details>
+<details style="margin-top: 12px;">
+    <summary style="cursor: pointer;">Note: How To Add Or Remove Sections</summary>
+    <div style="padding: 12px 4px 0;">
+        <p style="margin: 0 0 10px;">To add a new section, copy one of the existing tab links at the top and one of the
+            matching section blocks below, then paste both copies into the same pattern position.</p>
+        <p style="margin: 0 0 10px;">When you do this, make sure the link target and the section name match exactly. For
+            example, if the top link points to section-four, the section below it should also be named section-four.</p>
+        <p style="margin: 0;">To remove a section, delete both pieces for that section: the tab link at the top and the
+            matching expandable section block below it.</p>
+    </div>
+</details>

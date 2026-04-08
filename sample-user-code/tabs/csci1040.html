@@ -1,0 +1,171 @@
+<p>Please review the background materials located in each tab to provide a foundational understanding of cryptography. After you are done reviewing the materials, there is an optional self-check quiz that allows you to see how well you have mastered the concepts and terminology. This quiz is not graded and you can take it as many times as you would like.&nbsp;</p>
+<div style="border: 1px solid #c7cdd1; border-radius: 8px; overflow: hidden; margin: 20px 0;">
+    <div style="background: #f1efee; border-bottom: 1px solid #c7cdd1; display: flex; flex-wrap: wrap; gap: 0;">
+        <a href="#public-key-encryption" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;">Public-key Encryption</a>
+        <a href="#digital-signature-schemes" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;">Digital Signature Schemes</a>
+        <a href="#hash-functions" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;">Hash Functions and How They Are Used; Certification</a>
+        <a href="#randomness" style="background: #f1efee; border-right: 1px solid #c7cdd1; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;">Randomness</a>
+        <a href="#real-world-encryption" style="background: #f1efee; color: #2d3b45; display: inline-block; padding: 12px 16px; text-decoration: none;">Encryption and Authentication in the Real World</a>
+    </div>
+    <div style="background: #ffffff; padding: 0;">
+        <details id="public-key-encryption" open style="border-bottom: 1px solid #c7cdd1;">
+            <summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;">Public-key Encryption</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p><span>This video introduces symmetric and public-key encryption and related terminology:</span></p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188734126?autoplay=0&amp;loop=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>&nbsp;</p>
+            </div>
+        </details>
+        <details id="digital-signature-schemes" style="border-bottom: 1px solid #c7cdd1;">
+            <summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;">Digital Signature Schemes</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>Remember our friends Alice, Bob, and Eve? Now the plot thickens. Not only is Eve eavesdropping on the messages between Alice and Bob, but she is also trying to inject her own messages into their correspondence.</p>
+                <p>Alice receives a message from Bob that says he is breaking up with her. How does Alice know that the message is really from Bob and isn't a fake from Eve?</p>
+                <p>Cryptography gives us a useful tool to help Alice and Bob thwart Eve. This tool is called a <strong>digital signature scheme.</strong></p>
+                <p>In a digital signature scheme, Bob has two keys, a secret key, SK, and a public key, PK.</p>
+                <div style="max-width: 700px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188853292?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <p>Here, the secret key is the "secret sauce" that allows him&ndash;and only him&ndash;to sign a message, and the public key is what allows other people to verify Bob's signature on a message.</p>
+                <p>A digital signature scheme consists of three algorithms:</p>
+                <p style="padding-left: 30px;"><strong>Key Generation:</strong> where a secret key, SK, and a public key, PK, are generated</p>
+                <div style="max-width: 600px; padding-left: 30px;">
+                    <div style="position: relative; padding-bottom: 52.864583%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188906216?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <p style="padding-left: 30px;"><strong>Sign:</strong> on input a secret key, SK, and a message, m, generate a signature, denoted &sigma;</p>
+                <div style="max-width: 600px; padding-left: 30px;">
+                    <div style="position: relative; padding-bottom: 74.6875%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188922848?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <p style="padding-left: 30px;"><strong>Verify:</strong> on input the public key, PK, the message, m, and the purported signature &sigma;, verify that &sigma; is valid; accept if it is, reject if it is not.</p>
+                <div style="max-width: 600px; padding-left: 30px;">
+                    <div style="position: relative; padding-bottom: 74.6875%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188931528?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <p>And in order for a digital signature scheme to work, it must be:</p>
+                <p style="padding-left: 30px;"><strong>Correct:</strong> Verify(PK,m,&sigma;) = accept whenever &sigma; = Sign(SK,m), where SK corresponds to PK.</p>
+                <div style="max-width: 600px; padding-left: 30px;">
+                    <div style="position: relative; padding-bottom: 41.176471%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189038819?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <p style="padding-left: 30px;"><strong>Secure (Unforgeable):</strong> no matter how long Eve eavesdrops on the channel and observes Bob sign various messages, she still cannot spoof Bob's signature.</p>
+                <p>So let&rsquo;s see how this all plays out in the drama between Alice and Bob. How should they ensure that they can communicate securely and reliably?</p>
+                <p>First of all, Alice and Bob need to set up their keys, both for encryption and for digital signatures. Let PK<sub>enc</sub> denote the public key for encryption, and PK<sub>sign</sub> denote the public key for signing; similarly, let SK<sub>enc </sub>and SK<sub>sign </sub>denote their secret variants.</p>
+                <p>Then, they need to give each other the public portions of these keys.</p>
+                <p>Next, if Bob wants to send a message to Alice, he should use his SK<sub>sign</sub> to sign it and get &sigma;, and then use Alice's PK<sub>enc</sub> to encrypt m and &sigma;.</p>
+                <p>So now, if Alice receives a message that purports to be from Bob, all she needs to do to check that it is indeed from Bob (and not a spoof from Eve) by verifying the signature on it.</p>
+                <p>If the signature does not verify, then Bob didn't break up with her after all, and they have more exciting adventures in cryptography in store.</p>
+                <p>&nbsp;</p>
+            </div>
+        </details>
+        <details id="hash-functions" style="border-bottom: 1px solid #c7cdd1;">
+            <summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;">Hash Functions and How They Are Used; Certification</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>So now we know that in order to make it possible to digitally sign messages, the signer needs to have set up his/her key pair (PK, SK), and the recipient needs to know the signer's PK.</p>
+                <p>But what happens during the signing algorithm? There are many different cryptographic algorithms, but the most common scenario is as follows.</p>
+                <p>If Bob wants to send a message to Alice, first, Bob settles on the message, M, that he wants to sign. Potentially, M can be a very large document.</p>
+                <div style="max-width: 700px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189060362?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <p>Now, you&rsquo;ll notice we&rsquo;re using a capital &ldquo;M&rdquo; here. This is in contrast to the lowercase &ldquo;m&rdquo; we used earlier, and you&rsquo;ll see why in a moment.</p>
+                <p>Next, Bob "hashes" M to a relatively short string, typically just 256 bits. For this, Bob uses a cryptographic hash function, H. Right now, how H works is not important. But what is important to know is that H should be <strong>collision-resistant</strong>; that is, it should be nearly impossible to find two different messages, M<sub>1</sub> and M<sub>2</sub>, that will hash to the same value.</p>
+                <p>The resulting short string, m = H(M), where m is 256 bits, is what is actually signed. That way, even if the original document, M, is very large, the signature is still small.</p>
+                <div style="max-width: 700px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189079208?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <p>Also, using H, we can make sure that, even if Bob&rsquo;s signing PK is quite large, Alice need not store it. All she needs to remember is pk = H(PK), which is just a 256-bit string. As long as Bob includes his PK every time he sends her a signed message, she can verify that PK is correct by checking that pk = H(PK).</p>
+                <p>So how do Alice and Bob use a hash function, H? Alice stores pk = H(PK) for Bob, and receives from Bob the message, M, his public key, PK, and the signature &sigma; = Sign(SK,H(M)). Here is what she must do to verify Bob&rsquo;s signature:</p>
+                <ol style="padding-left: 30px;">
+                    <li>Check that pk = H(PK)</li>
+                </ol>
+                <ol style="padding-left: 30px;" start="2">
+                    <li>Check Verify(PK,H(M),&sigma;) = accept</li>
+                </ol>
+                <p>But maybe Alice and Bob never met before, so Alice does not know Bob&rsquo;s pk = H(PK), or indeed anything about his PK. She receives (PK,M,<span>&sigma;) over the network. How does she verify that,&nbsp;in fact, it is from Bob and not from someone else?</span></p>
+                <p>If she is tricked into thinking that a PK that Eve sent to fool Alice is the correct PK for Bob, it can have catastrophic consequences: Eve will be able to both read the messages Alice thinks she is sending to Bob in confidence and spoof messages from Bob to Alice.</p>
+                <p>This is the problem of certification. However, there are several solutions:</p>
+                <ol style="padding-left: 30px;">
+                    <li><strong>Self-certification:</strong> In this scenario, Bob gives Alice his PK in person, so that she knows it's his because she received it from him via a channel that is already authenticated.</li>
+                </ol>
+                <div style="max-width: 600px; padding-left: 55px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189096032?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <ol style="padding-left: 30px;" start="2">
+                    <li><strong>Peer certification:</strong> Here, Alice and Bob use a mutual friend, Fred, whom Alice trusts, and whose PK Alice already knows. If Fred has signed Bob's PK &ndash; a signature that certifies the validity of a public key is called a certificate &ndash; then Alice can be reasonably sure that it is correct.</li>
+                </ol>
+                <div style="max-width: 600px; padding-left: 55px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189100683?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <br />
+                <ol style="padding-left: 30px;" start="3">
+                    <li><strong>Certification authority: </strong>This method uses a certification authority that is globally trusted. One example could be Brown University. In this scenario, Brown University certifies that Bob&rsquo;s PK is, indeed, his correct PK, and not one spoofed by Eve.</li>
+                </ol>
+                <div style="max-width: 600px; padding-left: 55px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189101708?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+            </div>
+        </details>
+        <details id="randomness" style="border-bottom: 1px solid #c7cdd1;">
+            <summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;">Randomness</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>Up until now, we pictured a key generation algorithm like this:</p>
+                <div style="position: relative; padding-bottom: 52.864583%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/181819463?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>But what is inside this box that makes Alice's and Bob's keys safe from Eve? &nbsp;What stops Eve from running exactly the same key generation algorithm to obtain exactly the same keys?</p>
+                <p>The magic sauce is <strong>randomness</strong>.</p>
+                <p>How do we generate a truly random sequence of bits? One time-tested method is to simply flip a coin.</p>
+                <div style="position: relative; padding-bottom: 46.145833%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/181789324?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="295" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>Half the time it comes up heads, half the time tails. If you need a long truly random string of bits, just flip a coin enough times.</p>
+                <p>So now our updated view of a key generation algorithm is this:</p>
+                <div style="position: relative; padding-bottom: 52.864583%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/181819377?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>So even though Eve is running the same exact algorithm as Bob, unless she is lucky enough to pick the same sequence of bits to go into it, her output will be different from Bob's.</p>
+                <p>Of course, in reality, there is no coin inside your computer that will flip bits for you. Instead, your computer generates a sequence of bits that might or might not be good enough. So what are some common techniques for generating a random sequence inside your computer?</p>
+                <p>Randomness, also known as <strong>entropy</strong>, may come from a user's keystrokes or mouse movement.</p>
+                <p><span>It can also originate from the timing of various messages arriving over the network, or internal processes handing over control to each other.</span></p>
+                <p><span>Sometimes, instead of looking for fresh entropy from its physical environment, your operating system might produce bits algorithmically, using so-called pseudorandom generators.</span></p>
+                <p><span>What can go wrong in the process? &nbsp;What happens if, instead of being truly random, the bits that go into the key generation algorithm are somehow skewed?</span></p>
+                <p><span>One example is&nbsp;if the coin is skewed, and it always comes up heads. Eve can then easily generate the exact same key as Bob.</span></p>
+                <div style="position: relative; padding-bottom: 52.864583%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/183876946?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="640" height="338" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p><span>Or, sometimes, even though he might have some true randomness to work with, his randomness is just not good enough for the security proof of the cryptosystem to hold. Whatever proof of security we have for the original algorithms that Alice and Bob were supposed to be using no longer carries over b</span><span>ecause the proof of security assumed that the randomness was perfect.</span></p>
+                <p>So now, because the proof doesn&rsquo;t hold anymore, we are vulnerable to cryptanalysis.</p>
+                <p><span>Therefore, before you generate your keypairs, you must make sure that you have good randomness.</span></p>
+                <hr />
+                <p>Read this article: <a id="" class="" title="" href="http://jacobsschool.ucsd.edu/news/news_releases/release.sfe?id=1248" target="">Mining and Minding Her Ps and Qs</a></p>
+                <p>After reading the article, think about the following: Which cryptographic algorithms of the ones that we have seen so far (key generation for public-key encryption, key generation for digital signatures, encryption, decryption, signing, verification) require randomness? What can go wrong if they don&rsquo;t have access to good randomness?</p>
+            </div>
+        </details>
+        <details id="real-world-encryption">
+            <summary style="background: #4e3629; color: #ffffff; cursor: pointer; font-size: 1.05em; font-weight: bold; list-style: none; padding: 14px 18px;">Encryption and Authentication in the Real World</summary>
+            <div style="font-size: 18px; padding: 18px;">
+                <p>So how is all this cryptography used in the real world? If you&rsquo;ve ever made an online purchase, you&rsquo;ve used all the building blocks we&rsquo;ve covered in this module.</p>
+                <p>Included in the software for the browser you&rsquo;re using right now are public keys of certification authorities.</p>
+                <p>It&rsquo;s these certification authorities' job to certify that a given URL is associated with a given public key.</p>
+                <p>For example, Amazon.com&rsquo;s public key is:</p>
+                <p style="padding-left: 60px;">BB 04 0C 7C A4 51 66 9A A5 DD 60 52 D2 EA 38 0D F3 2B AE 40 04 5F DF BA 50 3D 9F 55 29 95 DB 58 BD 8A A0 9E 72 61 DA E3 3F 4B 37 37 8A AA 91 8D 92 94 DB 5C C6 89 7C BC 72 D1 E8 68 42 9E EF C9 52 22 B7 A9 7E 55 9F 4B F9 54 E2 2F 4F AF F0 C8 C6 F8 A9 7A 4A 0E 09 EA 8C D5 F8 41 DC 93 DD 48 77 CC C2 53 22 C7 2D C9 89 E5 FE B4 91 AC C9 24 2D 73 18 A9 53 91 94 7A 39 FD 12 CD C2 EB 8D ED 13 DC FA A6 77 26 E3 02 31 68 04 C7 64 D0 6D 6B 29 CB 71 76 CD 54 9F 2C 08 E2 92 0E 37 3B 26 A3 3C CF 8E 4F 14 A7 93 40 D6 CD DB A3 DB 9B 09 05 1C 3D 21 26 D5 30 C9 E1 30 DD 41 52 FC 5A C0 CD 8D 8D 12 C1 38 95 98 9F AF A3 84 D5 22 14 65 7C 6B FE C7 31 DE F0 95 C5 63 1B 15 25 9F C5 3F BD 2E 15 11 F9 F9 49 2E E3 26 86 60 56 58 B7 BD 55 DE 43 93 CC CD C5 BD 19 47 6F DD E3 00 DA 00 1F</p>
+                <p>And your browser will verify&nbsp;Amazon's certificate, too, and give you some info about it:</p>
+                <p style="padding-left: 60px;"><img src="https://canvas.brown.edu/courses/1102533/files/72065879/preview" alt="Amazon certificate showing it is certified by Symantec" width="80%" data-api-endpoint="https://canvas.brown.edu/api/v1/courses/1102533/files/72065879" data-api-returntype="File" /></p>
+                <p>The certification authority that issued this certificate is Symantec, which is a company that, among other things, is in the business of ensuring that it correctly associates public keys with the owners of the corresponding domains. Symantec's&nbsp;public key is hard-wired into your browser, which is why your browser can verify Amazon's certificate without accessing any other web resources. In addition to Symantec's public key, other popular certification authorities' public keys are also known to your browser (for example, that of Verisign). Should any of those certification authorities get hacked, the security of your connections to services such as amazon can be compromised; this has been a source of serious vulnerabilities in the past. Luckily, updating your browser software and a judicious use of expiration dates mitigates the problem to a great extent.</p>
+                <p>You can obtain that information by clicking the lock symbol next to the https link when you go to their website:</p>
+                <div style="max-width: 640px; margin-left: auto; margin-right: auto;">
+                    <div style="position: relative; padding-bottom: 79.21875%; height: 0; margin-left: auto; margin-right: auto;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/188700551?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=0;" width="640" height="507" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                </div>
+                <p>If you look at more details, you will also see the SHA1 and the MD5 &ldquo;fingerprint&rdquo; of Amazon.com&rsquo;s public key. SHA1 and MD5 are both cryptographic hash functions, and these fingerprints are just hashes of the full public key.</p>
+                <p>When you want to buy something from amazon.com, you must first establish a secure connection with it. So how do you do it?</p>
+                <p>First, some terminology: in this transaction, you &ndash; or, rather, your browser &ndash; play the role of the <strong>client</strong>, while amazon.com is called the <strong>server.</strong></p>
+                <p>Even before your transaction begins, the server has established a public key, and it has been certified by one of the certification authorities your browser trusts.</p>
+                <p>So when you talk to amazon.com, you can already make sure that you are talking to the correct server: it can use <strong>digital signatures</strong> to sign whatever messages it sends to you.</p>
+                <p>You can also send it your own public key so that your connection can be encrypted. However, the more common thing to do, instead of sending a public key, is to pick a symmetric key, K, and send it to the server, encrypted under the server's public key. The client and server use K to encrypt and authenticate their communication throughout the session. This key is called "the session key."</p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189210769?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>There is, however, a vulnerability to this approach. If Amazon's secret key is ever compromised, K can be decrypted. So if you sent your credit card info encrypted under K, a hacker who managed to eavesdrop it today and break into amazon.com sometime later can decrypt it.</p>
+                <p>The more desirable (but less commonly deployed) scenario is slightly different. Instead of picking K and sending it in encrypted form, the client and server generate it over an insecure network using a key exchange protocol, typically the Diffie-Hellman key exchange.</p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://player.vimeo.com/video/189233959?autoplay=0&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autopause=1" width="560" height="349" loading="lazy" allowfullscreen="allowfullscreen" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"></iframe></div>
+                <p>We&rsquo;ll go more in-depth into this method later, but the advantage of this method is that, in this case, the session key disappears after the session dies out: it was never sent in encrypted form.</p>
+                <p>Any time you see "https" at the start of a URL in your browser, it means that your browser has connected to a server, verified that it has connected to the correct server (using signatures), established a session key, K, with the server, and now encrypts and authenticates everything sent in this session using K.</p>
+                <p>Here is a link that explains what happens on a low level:</p>
+                <p>Straubing, H. "Crypto in practice: What happens when you connect to a secure web server"&nbsp;<br /><a id="" class="" title="" href="http://cs.bc.edu/~straubin/crypto-2014/demosteps.pdf" target="">Article from website</a></p>
+            </div>
+        </details>
+    </div>
+</div>
+<hr />

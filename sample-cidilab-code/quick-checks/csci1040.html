@@ -1,0 +1,78 @@
+<p class="noindent">The symmetric-key analogue of a digital signature scheme is called a message-authentication code
+    (MAC). Here, Alice and Bob share a symmetric key <span class="cmmi-10x-x-109">K</span>; Alice uses <span
+        class="cmmi-10x-x-109">K </span>in order to compute an authentication tag <span class="cmmi-10x-x-109">t</span>
+    on her message <span class="cmmi-10x-x-109">M </span>to Bob, so <span class="cmmi-10x-x-109">t </span>= <span
+        class="cmti-10x-x-109">MAC</span>(<span class="cmmi-10x-x-109">K,M</span>); when Bob receives <span
+        class="cmmi-10x-x-109">M </span>and <span class="cmmi-10x-x-109">t </span>from Alice, he checks whether
+    <em><span class="cmmi-10x-x-109">t </span></em>= <span class="cmti-10x-x-109">MAC</span>(<span
+        class="cmmi-10x-x-109">K,M</span>).
+</p>
+<p class="indent">In other words, a message authentication code consists of two algorithms: a key generation algorithm
+    <span class="cmti-10x-x-109">KeyGen</span> and an algorithm <span class="cmti-10x-x-109">MAC.</span> <span
+        class="cmti-10x-x-109">KeyGen</span> is a randomized algorithm that outputs a key <span
+        class="cmmi-10x-x-109">K</span>, and <span class="cmti-10x-x-109">MAC</span> takes an input a key <span
+        class="cmmi-10x-x-109">K </span>and a message <span class="cmmi-10x-x-109">M </span>and outputs a tag <em><span
+            class="cmmi-10x-x-109">t</span></em>.
+</p>
+<p class="indent">It is actually desirable that any sufficiently long string (sufficiently long typically means 160
+    bits) can work as the key <span class="cmmi-10x-x-109">K</span>, so the key generation algorithm just consists of
+    picking a 160-bit string <span class="cmmi-10x-x-109">K </span>uniformly at random.</p>
+<p class="indent">Building on our definition of security for a digital signature scheme, let us give one for MACs.</p>
+<p class="noindent">&nbsp;</p>
+<div class="minipage" style="border: 3px; border-style: solid; border-color: #FF0000; padding: 1em;"><strong><span
+            class="cmbx-10x-x-109">Definition of unforgeability for signatures: </span></strong>Let a key <span
+        class="cmmi-10x-x-109">K </span>be chosen according to the <span class="cmti-10x-x-109">KeyGen</span> algorithm.
+    Suppose an adversary Eve has the following available to her:
+    <ul class="itemize1">
+        <li class="itemize">The ability to obtain tags <em><span class="cmmi-10x-x-109">t </span></em>= <span
+                class="cmti-10x-x-109">MAC</span>(<span class="cmmi-10x-x-109">K,M</span>) for messages <span
+                class="cmmi-10x-x-109">M </span>of her choice;</li>
+        <li class="itemize">All the computational resources that can reasonably be available to a powerful adversary.
+        </li>
+    </ul>
+    <p class="noindent">A message authentication code is secure if Eve&rsquo;s likelihood to produce a tag <em><span
+                class="cmmi-10x-x-109">t </span></em>for a message <span class="cmmi-10x-x-109">M </span>that she has
+        not explicitly obtained is infinitesimally small.</p>
+</div>
+<p>&nbsp;</p>
+<p class="indent">In Module 2, when we talked about how CBC mode was in practice, a message authentication code was a
+    missing piece. Recall that Alice used public-key encryption to send Bob a symmetric key <span
+        class="cmmi-10x-x-109">K</span>, which she then used to encrypt her actual message using symmetric encryption,
+    and to authenticate the resulting ciphertext.</p>
+<p class="indent">How are MACs constructed? There are many candidate constructions in the literature. The one
+    that&rsquo;s most frequently used in practice is called &ldquo;Hash-based MAC,&rdquo; or HMAC for short, and it was
+    designed by three cryptographers: Mihir Bellare (of the RSA-OAEP and FDH-RSA constructions), Ran Canetti and Hugo
+    Krawczyk. It is very simple: <span class="cmti-10x-x-109">HMAC</span>(<span class="cmmi-10x-x-109">K,M</span>) =
+    <em><span class="cmmi-10x-x-109">H</span></em>((<span class="cmmi-10x-x-109">K </span><span
+        class="cmsy-10x-x-109">&oplus; </span><span class="cmmi-10x-x-109">A</span>) ⚬ <em><span
+            class="cmmi-10x-x-109">H</span></em>((<span class="cmmi-10x-x-109">K </span><span
+        class="cmsy-10x-x-109">&oplus; </span><span class="cmmi-10x-x-109">B</span>) ⚬ <span
+        class="cmmi-10x-x-109">M</span>)), where <span class="cmsy-10x-x-109">&oplus;</span> denotes the exclusive-or
+    operation, ⚬ denotes concatenation, and <span class="cmmi-10x-x-109">A </span>and <span class="cmmi-10x-x-109">B
+    </span>are two fixed strings. It is easy to see that it is secure in the random-oracle model.
+</p>
+<p class="indent">&nbsp;</p>
+<div id="kl_wrapper_3">
+    <div id="kl_quick_check_0" class="kl_quick_check kl_quick_check_required kl_quick_check_0_content">
+        <h4><i class="fa fa-bolt"><span class="dp-icon-content" style="display: none;">&nbsp;</span></i>&nbsp;Self Check
+        </h4>
+        <p>Why intuitively is HMAC secure in the random-oracle model?</p>
+        <div class="kl_quick_check_answers">
+            <div id="kl_quick_check_0_0" class="kl_quick_check_answer_wrapper kl_quick_check_correct_answer">
+                <div class="kl_quick_check_answer">
+                    <p>Answer:</p>
+                </div>
+                <div class="kl_quick_check_response">
+                    <p>To compute HMAC(K,M), we need to be able to compute H((K &oplus; A) ⚬ H((K &oplus; B) ⚬ M)). In
+                        the random-oracle model, we can only compute H(x) by explicit queries, and so we would need to
+                        know K in order to query the hash function H for the values (K &oplus; B) ⚬ M and (K &oplus; A)
+                        ⚬ H((K &oplus; B) ⚬ M).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>The beauty of HMAC is that it was shown to be secure even if H is not quite random-oracle-like, but is
+        constructed in a way some frequently used candidates for cryptographic hash functions were constructed, such as
+        MD5 and SHA-1. Interestingly, even though, as we just saw, MD5 is badly broken, instantiating HMAC with MD5
+        seems to still withstand cryptanalysis.</p>
+</div>
